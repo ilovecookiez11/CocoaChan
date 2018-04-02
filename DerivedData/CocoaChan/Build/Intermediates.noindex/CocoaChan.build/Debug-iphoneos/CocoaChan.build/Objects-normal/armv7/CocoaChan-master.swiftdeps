@@ -1,0 +1,16 @@
+version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
+options: "3d916151713c5fb17826e07ab6413c74"
+build_time: [1522636371, 691868000]
+inputs:
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/HTMLDecodeExtension.swift": [1518480450, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/SecondViewController.swift": [1517871374, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/UIImageFromURLextension.swift": [1520743072, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/AppDelegate.swift": [1519165097, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/BoardPageTableViewController.swift": !dirty [1521522564, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/Board.swift": [1518381136, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/FirstViewController.swift": [1521445528, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/BoardCell.swift": [1521352395, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/ThreadViewController.swift": !dirty [9223372036, 854775807]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/SwiftyJSON.swift": [1520273928, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/PostCell.swift": [1521522333, 0]
+  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/CocoaChan/Post.swift": [1521522914, 0]

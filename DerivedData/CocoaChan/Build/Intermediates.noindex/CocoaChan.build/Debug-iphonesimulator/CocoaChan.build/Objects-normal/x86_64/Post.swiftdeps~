@@ -1,0 +1,207 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Post"
+- "ThreadPost"
+provides-nominal:
+- "9CocoaChan4PostC"
+- "9CocoaChan10ThreadPostC"
+provides-member:
+- ["9CocoaChan4PostC", ""]
+- ["9CocoaChan10ThreadPostC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Int"
+- "NSObject"
+- "Post"
+- "String"
+- !private "StringLiteralType"
+- "ThreadPost"
+- "intmax_t"
+depends-member:
+- !private ["s7CVarArgP", "comment"]
+- !private ["s7CVarArgP", "date"]
+- !private ["s7CVarArgP", "fileExt"]
+- !private ["s7CVarArgP", "filename"]
+- !private ["s7CVarArgP", "imageCount"]
+- !private ["s7CVarArgP", "imageURL"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "locked"]
+- !private ["s7CVarArgP", "name"]
+- !private ["s7CVarArgP", "postNumber"]
+- !private ["s7CVarArgP", "replyCount"]
+- !private ["s7CVarArgP", "sticky"]
+- !private ["s7CVarArgP", "title"]
+- ["s7CVarArgP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "comment"]
+- !private ["s28CustomDebugStringConvertibleP", "date"]
+- !private ["s28CustomDebugStringConvertibleP", "fileExt"]
+- !private ["s28CustomDebugStringConvertibleP", "filename"]
+- !private ["s28CustomDebugStringConvertibleP", "imageCount"]
+- !private ["s28CustomDebugStringConvertibleP", "imageURL"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "locked"]
+- !private ["s28CustomDebugStringConvertibleP", "name"]
+- !private ["s28CustomDebugStringConvertibleP", "postNumber"]
+- !private ["s28CustomDebugStringConvertibleP", "replyCount"]
+- !private ["s28CustomDebugStringConvertibleP", "sticky"]
+- !private ["s28CustomDebugStringConvertibleP", "title"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "comment"]
+- !private ["s23CustomStringConvertibleP", "date"]
+- !private ["s23CustomStringConvertibleP", "fileExt"]
+- !private ["s23CustomStringConvertibleP", "filename"]
+- !private ["s23CustomStringConvertibleP", "imageCount"]
+- !private ["s23CustomStringConvertibleP", "imageURL"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "locked"]
+- !private ["s23CustomStringConvertibleP", "name"]
+- !private ["s23CustomStringConvertibleP", "postNumber"]
+- !private ["s23CustomStringConvertibleP", "replyCount"]
+- !private ["s23CustomStringConvertibleP", "sticky"]
+- !private ["s23CustomStringConvertibleP", "title"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s9EquatableP", "comment"]
+- !private ["s9EquatableP", "date"]
+- !private ["s9EquatableP", "fileExt"]
+- !private ["s9EquatableP", "filename"]
+- !private ["s9EquatableP", "imageCount"]
+- !private ["s9EquatableP", "imageURL"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "locked"]
+- !private ["s9EquatableP", "name"]
+- !private ["s9EquatableP", "postNumber"]
+- !private ["s9EquatableP", "replyCount"]
+- !private ["s9EquatableP", "sticky"]
+- !private ["s9EquatableP", "title"]
+- ["s9EquatableP", ""]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s8HashableP", "comment"]
+- !private ["s8HashableP", "date"]
+- !private ["s8HashableP", "fileExt"]
+- !private ["s8HashableP", "filename"]
+- !private ["s8HashableP", "imageCount"]
+- !private ["s8HashableP", "imageURL"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "locked"]
+- !private ["s8HashableP", "name"]
+- !private ["s8HashableP", "postNumber"]
+- !private ["s8HashableP", "replyCount"]
+- !private ["s8HashableP", "sticky"]
+- !private ["s8HashableP", "title"]
+- ["s8HashableP", ""]
+- ["So8NSObjectC", "Int"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "comment"]
+- ["So8NSObjectC", "date"]
+- ["So8NSObjectC", "fileExt"]
+- ["So8NSObjectC", "filename"]
+- ["So8NSObjectC", "imageCount"]
+- ["So8NSObjectC", "imageURL"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "intmax_t"]
+- ["So8NSObjectC", "locked"]
+- ["So8NSObjectC", "name"]
+- ["So8NSObjectC", "postNumber"]
+- ["So8NSObjectC", "replyCount"]
+- ["So8NSObjectC", "sticky"]
+- ["So8NSObjectC", "title"]
+- ["So8NSObjectC", ""]
+- !private ["So16NSObjectProtocolP", "comment"]
+- !private ["So16NSObjectProtocolP", "date"]
+- !private ["So16NSObjectProtocolP", "fileExt"]
+- !private ["So16NSObjectProtocolP", "filename"]
+- !private ["So16NSObjectProtocolP", "imageCount"]
+- !private ["So16NSObjectProtocolP", "imageURL"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "locked"]
+- !private ["So16NSObjectProtocolP", "name"]
+- !private ["So16NSObjectProtocolP", "postNumber"]
+- !private ["So16NSObjectProtocolP", "replyCount"]
+- !private ["So16NSObjectProtocolP", "sticky"]
+- !private ["So16NSObjectProtocolP", "title"]
+- ["So16NSObjectProtocolP", ""]
+- ["9CocoaChan4PostC", "Int"]
+- ["9CocoaChan4PostC", "String"]
+- ["9CocoaChan4PostC", "comment"]
+- ["9CocoaChan4PostC", "date"]
+- ["9CocoaChan4PostC", "deinit"]
+- ["9CocoaChan4PostC", "imageCount"]
+- ["9CocoaChan4PostC", "imageURL"]
+- ["9CocoaChan4PostC", "init"]
+- ["9CocoaChan4PostC", "intmax_t"]
+- ["9CocoaChan4PostC", "locked"]
+- ["9CocoaChan4PostC", "name"]
+- ["9CocoaChan4PostC", "postNumber"]
+- ["9CocoaChan4PostC", "replyCount"]
+- ["9CocoaChan4PostC", "sticky"]
+- ["9CocoaChan4PostC", "title"]
+- !private ["s12StaticStringV", "init"]
+- ["9CocoaChan10ThreadPostC", "Int"]
+- ["9CocoaChan10ThreadPostC", "String"]
+- ["9CocoaChan10ThreadPostC", "comment"]
+- ["9CocoaChan10ThreadPostC", "date"]
+- ["9CocoaChan10ThreadPostC", "deinit"]
+- ["9CocoaChan10ThreadPostC", "fileExt"]
+- ["9CocoaChan10ThreadPostC", "filename"]
+- ["9CocoaChan10ThreadPostC", "imageURL"]
+- ["9CocoaChan10ThreadPostC", "init"]
+- ["9CocoaChan10ThreadPostC", "intmax_t"]
+- ["9CocoaChan10ThreadPostC", "name"]
+- ["9CocoaChan10ThreadPostC", "postNumber"]
+- ["9CocoaChan10ThreadPostC", "title"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "comment"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "date"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fileExt"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "filename"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "imageCount"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "imageURL"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "locked"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "postNumber"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "replyCount"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "sticky"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "title"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+depends-nominal:
+- "s7CVarArgP"
+- "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "s9EquatableP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "s8HashableP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- "9CocoaChan4PostC"
+- !private "s12StaticStringV"
+- "9CocoaChan10ThreadPostC"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "70939c2ccef05f81ef9eac0eee712ecd"
