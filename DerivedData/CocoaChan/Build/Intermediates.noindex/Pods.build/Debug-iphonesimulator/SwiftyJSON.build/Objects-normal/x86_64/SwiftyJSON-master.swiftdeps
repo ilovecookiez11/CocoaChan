@@ -1,5 +1,0 @@
-version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
-options: "a20fbac207338a3086b7a9b5712a37b7"
-build_time: [1517872593, 390871000]
-inputs:
-  "/Users/yelyah/dev/swift/MyStuff/CocoaChan/Pods/SwiftyJSON/Source/SwiftyJSON.swift": [1517872568, 0]

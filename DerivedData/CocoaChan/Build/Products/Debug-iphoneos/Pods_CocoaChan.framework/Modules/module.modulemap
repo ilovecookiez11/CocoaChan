@@ -1,6 +1,0 @@
-framework module Pods_CocoaChan {
-  umbrella header "Pods-CocoaChan-umbrella.h"
-
-  export *
-  module * { export * }
-}
