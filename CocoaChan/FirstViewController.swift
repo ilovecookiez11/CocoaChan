@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class FirstViewController: UITableViewController {
 
     var boards = [Board]()
     let defaults = UserDefaults.standard
+    var sfwBoards = ["3", "a", "adv", "an", "asp", "biz", "c", "cgl", "ck", "cm", "co", "diy", "fa", "fit", "g", "gd", "his", "int", "jp", "k", "lit", "lgbt", "m", "mlp", "mu", "news", "t", "o", "out", "p", "po", "qst", "sci", "sp", "tg", "toy", "trv", "tv", "v", "vg", "vip", "vp", "vr", "w", "wsg", "wsr", "x"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +21,8 @@ class FirstViewController: UITableViewController {
         
         
         navigationItem.title = "Boards"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewBoard))
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewBoard))
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red:0.49, green:0.11, blue:0.09, alpha:1.0)];
         navigationController?.navigationBar.tintColor = UIColor(red:0.49, green:0.11, blue:0.09, alpha:1.0)
@@ -57,6 +59,27 @@ class FirstViewController: UITableViewController {
         return UITableViewAutomaticDimension
     }
     
+    //changes row position on TableView
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = self.boards[sourceIndexPath.row]
+        boards.remove(at: sourceIndexPath.row)
+        boards.insert(movedObject, at: destinationIndexPath.row)
+        saveBoardList()
+        self.tableView.reloadData()
+    }
+    
+    
+    //removes rows from TableView
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+        self.boards.remove(at: indexPath.row)
+        saveBoardList()
+        self.tableView.reloadData()
+        }
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,10 +87,14 @@ class FirstViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "BoardsToBoardPageSegue"){
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let selectedRowIndex = self.tableView.indexPathForSelectedRow
             let myCell = self.tableView.cellForRow(at: selectedRowIndex!)
             let myCurrentBoard = myCell?.contentView.restorationIdentifier
-            var BoardsToBoardPageVC:BoardPageTableViewController = segue.destination as! BoardPageTableViewController
+            let BoardsToBoardPageVC:BoardPageTableViewController = segue.destination as! BoardPageTableViewController
+            let backItem = UIBarButtonItem()
+            backItem.title = " "
+            BoardsToBoardPageVC.navigationItem.backBarButtonItem? = backItem
             BoardsToBoardPageVC.currentBoard = myCurrentBoard!
         }
     }
@@ -131,7 +158,14 @@ class FirstViewController: UITableViewController {
                             let newBoard = Board(name: myName, shortName: shortName1, boardDescription: myBoardDescription)
                             boards.append(newBoard)
                             self.saveBoardList()
-                            let alertView = UIAlertView(title: "Board added!", message: nil, delegate: self as? UIAlertViewDelegate, cancelButtonTitle: "OK")
+                            
+                            var disclaimer = "Notice: This board is considered Not Safe for Work by 4chan. Adult content will not be filtered by default. Viewer discretion is advised."
+                            
+                            if (sfwBoards.contains(myShortName)){
+                                disclaimer = "Notice: This board is considered Work Safe by 4chan. Posts are overseen by a staff of moderators and janitors so posting content that is not suitable for this environment (including adult content) may result in a ban."
+                            }
+                            
+                            let alertView = UIAlertView(title: "Board added!", message: disclaimer, delegate: self as? UIAlertViewDelegate, cancelButtonTitle: "OK")
                             alertView.show()
                         }
                     }

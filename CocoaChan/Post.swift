@@ -44,8 +44,9 @@ class ThreadPost : NSObject{
     var postNumber : intmax_t
     var filename : String?
     var fileExt : String?
+    var fileSize : Int?
     
-    init(postNumber: intmax_t, title: String, name: String, comment: String, date: intmax_t, imageURL: intmax_t, filename: String, fileExt : String) {
+    init(postNumber: intmax_t, title: String, name: String, comment: String, date: intmax_t, imageURL: Int?, filename: String, fileExt : String, fileSize : Int?) {
         self.postNumber = postNumber
         self.title = title
         self.name = name
@@ -54,7 +55,7 @@ class ThreadPost : NSObject{
         self.imageURL = imageURL
         self.filename = filename
         self.fileExt = fileExt
-        
+        self.fileSize = fileSize
 
 
     }

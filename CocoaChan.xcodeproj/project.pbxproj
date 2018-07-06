@@ -18,7 +18,6 @@
 		B67B9A442029188E005FE7B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67B9A422029188E005FE7B5 /* Main.storyboard */; };
 		B67B9A462029188E005FE7B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67B9A452029188E005FE7B5 /* Assets.xcassets */; };
 		B67B9A492029188E005FE7B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67B9A472029188E005FE7B5 /* LaunchScreen.storyboard */; };
-		B67B9A51202963C1005FE7B5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67B9A50202963C1005FE7B5 /* SwiftyJSON.swift */; };
 		B67B9A53202967F4005FE7B5 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67B9A52202967F4005FE7B5 /* Board.swift */; };
 		B6BBF0D92054EA0800AEC545 /* UIImageFromURLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBF0D82054EA0800AEC545 /* UIImageFromURLextension.swift */; };
 		B6E1F344203157890073E50D /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1F343203157890073E50D /* BoardCell.swift */; };
@@ -41,7 +40,6 @@
 		B67B9A452029188E005FE7B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B67B9A482029188E005FE7B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B67B9A4A2029188E005FE7B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B67B9A50202963C1005FE7B5 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		B67B9A52202967F4005FE7B5 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		B6BBF0D82054EA0800AEC545 /* UIImageFromURLextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageFromURLextension.swift; sourceTree = "<group>"; };
 		B6E1F343203157890073E50D /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				B67B9A402029188E005FE7B5 /* SecondViewController.swift */,
 				B6FA97ED203263F40089D1A3 /* PostCell.swift */,
 				B62BDCFE204D1159003D18B7 /* Post.swift */,
-				B67B9A50202963C1005FE7B5 /* SwiftyJSON.swift */,
 				B67B9A422029188E005FE7B5 /* Main.storyboard */,
 				B67B9A452029188E005FE7B5 /* Assets.xcassets */,
 				B67B9A472029188E005FE7B5 /* LaunchScreen.storyboard */,
@@ -130,7 +127,6 @@
 				B67B9A362029188E005FE7B5 /* Frameworks */,
 				B67B9A372029188E005FE7B5 /* Resources */,
 				5BF0602B6C78207076E66D4C /* [CP] Embed Pods Frameworks */,
-				8152DE2B2EF7B0252CCC91C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,30 +210,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CocoaChan/Pods-CocoaChan-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Attributed/Attributed.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Attributed.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CocoaChan/Pods-CocoaChan-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8152DE2B2EF7B0252CCC91C1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CocoaChan/Pods-CocoaChan-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -256,7 +241,6 @@
 				B67B9A3F2029188E005FE7B5 /* FirstViewController.swift in Sources */,
 				B6E1F344203157890073E50D /* BoardCell.swift in Sources */,
 				B64C49062060BE2A00E6BE82 /* ThreadViewController.swift in Sources */,
-				B67B9A51202963C1005FE7B5 /* SwiftyJSON.swift in Sources */,
 				B6FA97EE203263F40089D1A3 /* PostCell.swift in Sources */,
 				B62BDCFF204D1159003D18B7 /* Post.swift in Sources */,
 			);
