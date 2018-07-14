@@ -64,9 +64,9 @@ class BoardPageTableViewController: UITableViewController {
         cell.postNumber = post.postNumber
         
         /*Comment is returned as an html formatted string, /p/ even comes with javascript on it
-         Parsing HTML is not recommended on background threads (tableView's dataSource runs on a background thread)
+         Parsing HTML is not recommended on background threads (tableView's dataSource doesn't run on a background thread)
          that's why I'm parsing it here*/
-        let css = "<head><meta charset='utf-8'><style>html{font-size: 15 px;font-family:'Helvetica';}span.quote{color: green;}.quoteLink,.quotelink,.deadlink{color:#d00!important;text-decoration:underline}</style></head>"
+        let css = "<head><meta charset='utf-8'><style>html{font-size: 15 px;font-family:'Helvetica';}span.quote{color: #789922;}.quoteLink,.quotelink,.deadlink{color:#d00!important;text-decoration:underline}</style></head>"
         let myComment = css + post.comment
         let myCommentData : Data? = myComment.data(using: .utf8)
         let comment = try? NSAttributedString(data: myCommentData!, options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
@@ -143,7 +143,7 @@ class BoardPageTableViewController: UITableViewController {
         myRight.alignment = .right
         
         let myPostName = NSMutableAttributedString(string: post.name, attributes: [NSAttributedStringKey.foregroundColor: myGreen, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12)])
-        let postInfo = NSMutableAttributedString(string: " " + strDate + " No." + String(describing:post.postNumber) + threadClosed + threadPinned, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12), NSAttributedStringKey.paragraphStyle: myRight])
+        let postInfo = NSMutableAttributedString(string: " " + strDate + " No." + String(describing:post.postNumber) + threadClosed + threadPinned, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12), .paragraphStyle: myRight])
         let myPostInfo = NSMutableAttributedString()
         myPostInfo.append(myPostName)
         myPostInfo.append(postInfo)

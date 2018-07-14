@@ -3,6 +3,6 @@ use_frameworks!
 
 target 'CocoaChan' do
     pod 'SwiftyJSON'
-    pod 'Kingfisher', '~> 4.0'
-    pod 'Attributed'
+    pod 'Alamofire'
+    pod 'AlamofireImage', '~> 3.3'
 end

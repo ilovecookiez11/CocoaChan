@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D98A2931A756891423EA52C /* Pods_CocoaChan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0309B63682208F96314AC7B1 /* Pods_CocoaChan.framework */; };
 		B62BDCFF204D1159003D18B7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62BDCFE204D1159003D18B7 /* Post.swift */; };
+		B62D32BF20F2D31B00AAD59F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D32BE20F2D31B00AAD59F /* StringExtensions.swift */; };
 		B639BB43203CDB51007689A8 /* BoardPageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B639BB42203CDB51007689A8 /* BoardPageTableViewController.swift */; };
 		B64C49062060BE2A00E6BE82 /* ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64C49052060BE2A00E6BE82 /* ThreadViewController.swift */; };
 		B661B82C2031646800FC8033 /* HTMLDecodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661B82B2031646800FC8033 /* HTMLDecodeExtension.swift */; };
@@ -20,6 +21,7 @@
 		B67B9A492029188E005FE7B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67B9A472029188E005FE7B5 /* LaunchScreen.storyboard */; };
 		B67B9A53202967F4005FE7B5 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67B9A52202967F4005FE7B5 /* Board.swift */; };
 		B6BBF0D92054EA0800AEC545 /* UIImageFromURLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBF0D82054EA0800AEC545 /* UIImageFromURLextension.swift */; };
+		B6C51CD820F9535B00DF2A5B /* PostImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C51CD720F9535B00DF2A5B /* PostImageViewController.swift */; };
 		B6E1F344203157890073E50D /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1F343203157890073E50D /* BoardCell.swift */; };
 		B6FA97EE203263F40089D1A3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA97ED203263F40089D1A3 /* PostCell.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +31,7 @@
 		6383DC01AA2E8DBAAE4E24D1 /* Pods-CocoaChan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaChan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaChan/Pods-CocoaChan.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0221D8D6BECF0159817478 /* Pods-CocoaChan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaChan.release.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaChan/Pods-CocoaChan.release.xcconfig"; sourceTree = "<group>"; };
 		B62BDCFE204D1159003D18B7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		B62D32BE20F2D31B00AAD59F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B639BB42203CDB51007689A8 /* BoardPageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardPageTableViewController.swift; sourceTree = "<group>"; };
 		B64C49052060BE2A00E6BE82 /* ThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadViewController.swift; sourceTree = "<group>"; };
 		B661B82B2031646800FC8033 /* HTMLDecodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLDecodeExtension.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		B67B9A4A2029188E005FE7B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67B9A52202967F4005FE7B5 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		B6BBF0D82054EA0800AEC545 /* UIImageFromURLextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageFromURLextension.swift; sourceTree = "<group>"; };
+		B6C51CD720F9535B00DF2A5B /* PostImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageViewController.swift; sourceTree = "<group>"; };
 		B6E1F343203157890073E50D /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		B6FA97ED203263F40089D1A3 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +105,8 @@
 				B6E1F343203157890073E50D /* BoardCell.swift */,
 				B639BB42203CDB51007689A8 /* BoardPageTableViewController.swift */,
 				B64C49052060BE2A00E6BE82 /* ThreadViewController.swift */,
+				B6C51CD720F9535B00DF2A5B /* PostImageViewController.swift */,
+				B62D32BE20F2D31B00AAD59F /* StringExtensions.swift */,
 				B661B82B2031646800FC8033 /* HTMLDecodeExtension.swift */,
 				B6BBF0D82054EA0800AEC545 /* UIImageFromURLextension.swift */,
 				B67B9A3E2029188E005FE7B5 /* FirstViewController.swift */,
@@ -210,14 +216,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CocoaChan/Pods-CocoaChan-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Attributed/Attributed.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Attributed.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B62D32BF20F2D31B00AAD59F /* StringExtensions.swift in Sources */,
 				B661B82C2031646800FC8033 /* HTMLDecodeExtension.swift in Sources */,
 				B67B9A412029188E005FE7B5 /* SecondViewController.swift in Sources */,
 				B6BBF0D92054EA0800AEC545 /* UIImageFromURLextension.swift in Sources */,
@@ -239,6 +246,7 @@
 				B639BB43203CDB51007689A8 /* BoardPageTableViewController.swift in Sources */,
 				B67B9A53202967F4005FE7B5 /* Board.swift in Sources */,
 				B67B9A3F2029188E005FE7B5 /* FirstViewController.swift in Sources */,
+				B6C51CD820F9535B00DF2A5B /* PostImageViewController.swift in Sources */,
 				B6E1F344203157890073E50D /* BoardCell.swift in Sources */,
 				B64C49062060BE2A00E6BE82 /* ThreadViewController.swift in Sources */,
 				B6FA97EE203263F40089D1A3 /* PostCell.swift in Sources */,

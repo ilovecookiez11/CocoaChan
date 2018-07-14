@@ -32,7 +32,11 @@ class ThreadPostCell : UITableViewCell {
     @IBOutlet weak var myCustomViewLabel: UILabel!
     @IBOutlet weak var postInfo: UILabel!
     @IBOutlet weak var myDumbConstraint: NSLayoutConstraint!
+    @IBOutlet weak var myStackView: UIStackView!
     
     
     var postNumber: Int!
+    var postImage: Int!
+    var postExtension: String!
+    var postFilename: String!
 }

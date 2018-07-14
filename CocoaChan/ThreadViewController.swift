@@ -14,7 +14,10 @@ class ThreadViewController: UITableViewController {
     var currentBoard = "nothing"
     var threadNumber = 0
     var posts = [ThreadPost]()
-    
+    var postForRow = [Int: Int]()
+    var repliesForPost = [Int: [Int]]()
+    var postImage = ""
+    var imageURLArray = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,13 +53,26 @@ class ThreadViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ThreadPostCell
+        postForRow.updateValue(indexPath.item, forKey: post.postNumber)
+        
         
         cell.postNumber = post.postNumber
         
         if((post.imageURL) != nil){
             let thumb = "https://i.4cdn.org" + currentBoard + String(describing:post.imageURL!) + "s.jpg"
+            //cell.myDumbConstraint?.isActive = true
             cell.myImageView?.downloadedFrom(link: thumb)
-            cell.myCustomView?.isHidden = false
+            cell.myImageView?.isHidden = false
+            cell.myCustomViewLabel?.isHidden = false
+            let myGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.TappedView(_sender:)))
+            cell.myCustomView?.addGestureRecognizer(myGestureRecognizer)
+            cell.myCustomView?.isUserInteractionEnabled = true
+            
+            cell.postImage = post.imageURL
+            cell.postExtension = post.fileExt
+            cell.postFilename = post.filename
+            
+            
             
             let imageSpace = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 90, height: 100))
             cell.PostText?.textContainer.exclusionPaths = [imageSpace]
@@ -64,26 +80,25 @@ class ThreadViewController: UITableViewController {
             let sizeString = ByteCountFormatter.string(fromByteCount: filesize!, countStyle: ByteCountFormatter.CountStyle.binary)
             cell.myCustomViewLabel?.text = sizeString + " " + post.fileExt!
             
+            
         }
             
         else{
-            print("this post has no image: " + String(describing: post.postNumber))
+            //print("this post has no image: " + String(describing: post.postNumber))
             //cell.myDumbConstraint?.isActive = false
             cell.PostText?.textContainer.exclusionPaths = [UIBezierPath(rect: CGRect(x: 0, y: 0, width: 0, height: 0))]
-            cell.myCustomView?.isHidden = true
-            cell.myCustomView?.frame = CGRect(x:0, y: 0, width:0, height:0)
-            
+            cell.myImageView?.isHidden = true
+            cell.myCustomViewLabel?.isHidden = true
+           
             
         }
         
         /*Comment is returned as an html formatted string, /p/ even comes with javascript on it
          Parsing HTML is not recommended on background threads (tableView's dataSource runs on a background thread)
          that's why I'm parsing it here*/
-        let css = "<head><meta charset='utf-8'><style>html{font-size: 15 px;font-family:'Helvetica';}span.quote{color: green;}.quoteLink,.quotelink,.deadlink{color:#d00!important;text-decoration:underline}</style></head>"
-        let myComment = css + post.comment
-        let myCommentData : Data? = myComment.data(using: .utf8)
-        let comment = try? NSAttributedString(data: myCommentData!, options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-        cell.PostText?.attributedText = comment
+        //print(String(describing: post.postNumber) + " says: " + post.comment)
+        
+        cell.PostText?.attributedText = PrettyPost(postText: post.comment)
         cell.PostText?.font = UIFont.systemFont(ofSize: 14)
         
         
@@ -189,14 +204,50 @@ class ThreadViewController: UITableViewController {
             //print(imageURL)
             
             posts.append(obj)
+            
+            //Listing posts quoted on this post with RegEx
+            let pattern = "(?<=<a href=\\\"#p)[0-9]+"
+            let shit = comment.matchingStrings(regex: pattern)
+            print(shit)
+                
+            
+            
         }
         tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ThreadToPostImageSegue"){
+            
+            let ThreadToPostImageVC:PostImageViewController = segue.destination as! PostImageViewController
+            ThreadToPostImageVC.currentImage = postImage
+            
+        }
     }
     
     @objc func showError() {
         let ac = UIAlertController(title: "Loading error", message: "There was a problem downloading data from 4chan; please check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
+    }
+    
+    @objc func TappedView(_sender: UITapGestureRecognizer? = nil){
+        //I can't believe this one works
+        let cell = _sender?.view?.superview?.superview?.superview as! ThreadPostCell
+        let server = "https://i.4cdn.org"
+        let imageURL = server + currentBoard + String(describing: cell.postImage!) + cell.postExtension
+        postImage = imageURL
+        
+        print(imageURL)
+        performSegue(withIdentifier: "ThreadToPostImageSegue", sender: self)
+    }
+    
+    func PrettyPost(postText: String) -> NSAttributedString{
+        let css = "<head><meta charset='utf-8'><style>html{font-size: 15 px;font-family:'Helvetica';}span.quote{color: #789922;}.quoteLink,.quotelink,.deadlink{color:#d00!important;text-decoration:underline}</style></head>"
+        let myComment = css + postText
+        let myCommentData : Data? = myComment.data(using: .utf8)
+        let comment = try? NSAttributedString(data: myCommentData!, options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+        return comment!
     }
     
 
