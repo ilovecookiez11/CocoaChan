@@ -17,6 +17,7 @@ class ThreadViewController: UITableViewController {
     var postForRow = [Int: Int]()
     var repliesForPost = [Int: [Int]]()
     var postImage = ""
+    var postFileExt = ""
     var imageURLArray = [String]()
 
     override func viewDidLoad() {
@@ -196,6 +197,8 @@ class ThreadViewController: UITableViewController {
             
             if(imgURL != nil){
                 obj = ThreadPost(postNumber: threadNumber!, title: title, name: name, comment: comment, date: time!, imageURL: imgURL!, filename: myfilename, fileExt: myfileExt, fileSize: myfileSize)
+                imageURLArray.append(String(describing: imgURL!) + myfileExt)
+                
             }
             else{
                 obj = ThreadPost(postNumber: threadNumber!, title: title, name: name, comment: comment, date: time!, imageURL: nil, filename: myfilename, fileExt: myfileExt, fileSize: nil)
@@ -219,8 +222,13 @@ class ThreadViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ThreadToPostImageSegue"){
             
-            let ThreadToPostImageVC:PostImageViewController = segue.destination as! PostImageViewController
+            let ThreadToNavController = segue.destination as? UINavigationController
+            let ThreadToPostImageVC:PostImageViewController = ThreadToNavController?.topViewController as! PostImageViewController
+            ThreadToPostImageVC.currentBoard = currentBoard
             ThreadToPostImageVC.currentImage = postImage
+            ThreadToPostImageVC.fileType = postFileExt
+            ThreadToPostImageVC.picsURLArray = imageURLArray
+            ThreadToPostImageVC.imageIndex = imageURLArray.index(of: postImage)!
             
         }
     }
@@ -234,11 +242,7 @@ class ThreadViewController: UITableViewController {
     @objc func TappedView(_sender: UITapGestureRecognizer? = nil){
         //I can't believe this one works
         let cell = _sender?.view?.superview?.superview?.superview as! ThreadPostCell
-        let server = "https://i.4cdn.org"
-        let imageURL = server + currentBoard + String(describing: cell.postImage!) + cell.postExtension
-        postImage = imageURL
-        
-        print(imageURL)
+        postImage = String(describing: cell.postImage!) + cell.postExtension
         performSegue(withIdentifier: "ThreadToPostImageSegue", sender: self)
     }
     
@@ -249,6 +253,7 @@ class ThreadViewController: UITableViewController {
         let comment = try? NSAttributedString(data: myCommentData!, options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
         return comment!
     }
+    
     
 
 }

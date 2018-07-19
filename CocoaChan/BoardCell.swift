@@ -14,6 +14,6 @@ class BoardCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var detail: UILabel!
-//    @IBOutlet weak var boardCell: UITableViewCell!
+
     
 }

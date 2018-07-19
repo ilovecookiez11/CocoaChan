@@ -103,13 +103,13 @@
 				B67B9A3C2029188E005FE7B5 /* AppDelegate.swift */,
 				B67B9A52202967F4005FE7B5 /* Board.swift */,
 				B6E1F343203157890073E50D /* BoardCell.swift */,
+				B67B9A3E2029188E005FE7B5 /* FirstViewController.swift */,
 				B639BB42203CDB51007689A8 /* BoardPageTableViewController.swift */,
 				B64C49052060BE2A00E6BE82 /* ThreadViewController.swift */,
 				B6C51CD720F9535B00DF2A5B /* PostImageViewController.swift */,
 				B62D32BE20F2D31B00AAD59F /* StringExtensions.swift */,
 				B661B82B2031646800FC8033 /* HTMLDecodeExtension.swift */,
 				B6BBF0D82054EA0800AEC545 /* UIImageFromURLextension.swift */,
-				B67B9A3E2029188E005FE7B5 /* FirstViewController.swift */,
 				B67B9A402029188E005FE7B5 /* SecondViewController.swift */,
 				B6FA97ED203263F40089D1A3 /* PostCell.swift */,
 				B62BDCFE204D1159003D18B7 /* Post.swift */,
@@ -218,12 +218,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CocoaChan/Pods-CocoaChan-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
