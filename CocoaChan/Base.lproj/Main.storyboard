@@ -362,70 +362,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="dEZ-qa-qYd"/>
                     <connections>
-                        <segue destination="841-ib-wpm" kind="presentation" identifier="ThreadToPostImageSegue" id="bv4-Jd-Lkf"/>
+                        <segue destination="4za-sS-yyB" kind="presentation" identifier="ThreadToNavSegue" id="H45-Uv-W8G"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knw-oT-LJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3329" y="-340"/>
-        </scene>
-        <!--Post Image View Controller-->
-        <scene sceneID="tJr-lc-8rL">
-            <objects>
-                <viewController id="Epv-it-uaD" customClass="PostImageViewController" customModule="CocoaChan" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YhA-yZ-UC6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYU-ah-rh3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ouS-pR-Wb1">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="ouS-pR-Wb1" firstAttribute="centerX" secondItem="LYU-ah-rh3" secondAttribute="centerX" id="4aI-Og-zxp"/>
-                                    <constraint firstAttribute="bottom" secondItem="ouS-pR-Wb1" secondAttribute="bottom" id="DaH-Kv-WA5"/>
-                                    <constraint firstAttribute="trailing" secondItem="ouS-pR-Wb1" secondAttribute="trailing" id="GwW-hS-S7S"/>
-                                    <constraint firstItem="ouS-pR-Wb1" firstAttribute="centerY" secondItem="LYU-ah-rh3" secondAttribute="centerY" id="HnS-rs-bcr"/>
-                                    <constraint firstItem="ouS-pR-Wb1" firstAttribute="top" secondItem="LYU-ah-rh3" secondAttribute="top" id="L9F-w3-jGf"/>
-                                    <constraint firstItem="ouS-pR-Wb1" firstAttribute="leading" secondItem="LYU-ah-rh3" secondAttribute="leading" id="wyw-np-CuF"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="LYU-ah-rh3" firstAttribute="leading" secondItem="Ihi-rf-Dfk" secondAttribute="leading" id="8zp-ns-2b9"/>
-                            <constraint firstItem="LYU-ah-rh3" firstAttribute="trailing" secondItem="Ihi-rf-Dfk" secondAttribute="trailing" id="KWs-8e-EQc"/>
-                            <constraint firstItem="LYU-ah-rh3" firstAttribute="centerX" secondItem="Ihi-rf-Dfk" secondAttribute="centerX" id="Z1S-eb-bOW"/>
-                            <constraint firstItem="LYU-ah-rh3" firstAttribute="top" secondItem="Ihi-rf-Dfk" secondAttribute="top" id="bLf-XS-0oz"/>
-                            <constraint firstItem="LYU-ah-rh3" firstAttribute="centerY" secondItem="Ihi-rf-Dfk" secondAttribute="centerY" id="dzW-Gg-67M"/>
-                            <constraint firstItem="LYU-ah-rh3" firstAttribute="bottom" secondItem="Ihi-rf-Dfk" secondAttribute="bottom" id="kJ6-P1-4nY"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Ihi-rf-Dfk"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="byT-Na-956">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="qD6-CJ-rPb">
-                            <connections>
-                                <action selector="closedButtonTapped:" destination="Epv-it-uaD" id="VE4-3Y-3Wv"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" image="icons8-save_filled" id="Afd-Va-PRO">
-                            <connections>
-                                <action selector="saveButtonTapped:" destination="Epv-it-uaD" id="uUU-Xb-ZWa"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="closeButton" destination="qD6-CJ-rPb" id="QwL-9N-qD0"/>
-                        <outlet property="saveButton" destination="Afd-Va-PRO" id="tHa-RU-xqB"/>
-                        <outlet property="theImageView" destination="ouS-pR-Wb1" id="IIq-FM-roh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5qM-T4-Hb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4894" y="-341"/>
         </scene>
         <!--Boards-->
         <scene sceneID="ObM-uT-q0O">
@@ -465,23 +407,98 @@
             </objects>
             <point key="canvasLocation" x="748.79999999999995" y="359.82008995502252"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="DNT-MW-JN7">
+        <!--Carousel Page View Controller-->
+        <scene sceneID="pOm-CS-nIU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="841-ib-wpm" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="8" navigationOrientation="horizontal" spineLocation="none" id="GyJ-es-OZG" customClass="CarouselPageViewController" customModule="CocoaChan" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ZAb-aP-308">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="Bdv-1K-pVp">
+                            <connections>
+                                <action selector="closedButtonTapped:" destination="GyJ-es-OZG" id="WA1-MG-z8P"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" image="icons8-save_filled" id="uWA-UA-viG">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="GyJ-es-OZG" id="8iM-89-TMl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="closeButton" destination="Bdv-1K-pVp" id="Adi-zh-2o5"/>
+                        <outlet property="saveButton" destination="uWA-UA-viG" id="fh4-Qm-Aso"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0yi-sZ-PLB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4926" y="-336"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RKR-aZ-8sN">
+            <objects>
+                <navigationController storyboardIdentifier="NewNavController" automaticallyAdjustsScrollViewInsets="NO" id="4za-sS-yyB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u2E-0U-izT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gN4-tg-hGq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Epv-it-uaD" kind="relationship" relationship="rootViewController" id="YG8-4F-fky"/>
+                        <segue destination="GyJ-es-OZG" kind="relationship" relationship="rootViewController" id="sqd-3n-k3E"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RJ9-Kt-qNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Th-Uh-khp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4187.1999999999998" y="-340.92953523238384"/>
+            <point key="canvasLocation" x="4106" y="-336"/>
+        </scene>
+        <!--Carousel Image View Controller-->
+        <scene sceneID="3ya-hA-eHV">
+            <objects>
+                <viewController storyboardIdentifier="AnImageViewController" id="u51-kL-QKk" customClass="CarouselImageViewController" customModule="CocoaChan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jp2-IA-bWD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDX-4y-l5t">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Np-eW-SF5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="centerY" secondItem="wDX-4y-l5t" secondAttribute="centerY" id="Eax-WM-hYV"/>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="centerX" secondItem="wDX-4y-l5t" secondAttribute="centerX" id="b6Y-ZI-9cd"/>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="top" secondItem="wDX-4y-l5t" secondAttribute="top" id="j0T-oB-k31"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Np-eW-SF5" secondAttribute="trailing" id="jQY-G4-sMk"/>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="leading" secondItem="wDX-4y-l5t" secondAttribute="leading" id="o0R-O3-Nwo"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Np-eW-SF5" secondAttribute="bottom" id="xCS-p5-TdO"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="top" secondItem="3Ur-q1-qT7" secondAttribute="top" id="BqL-nO-RB9"/>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="leading" secondItem="3Ur-q1-qT7" secondAttribute="leading" id="Mws-Tk-usS"/>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="trailing" secondItem="3Ur-q1-qT7" secondAttribute="trailing" id="Sa4-kv-kjf"/>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="centerX" secondItem="3Ur-q1-qT7" secondAttribute="centerX" id="Stg-Ib-Rr2"/>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="bottom" secondItem="3Ur-q1-qT7" secondAttribute="bottom" id="UyX-V8-lL8"/>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="centerY" secondItem="3Ur-q1-qT7" secondAttribute="centerY" id="iWs-jb-1hf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Ur-q1-qT7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b3F-CG-UNK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="bgu-Hf-Jij"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" image="icons8-save_filled" id="qJE-la-xJM"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="theImageView" destination="3Np-eW-SF5" id="SAS-3x-aZV"/>
+                        <outlet property="theScrollView" destination="wDX-4y-l5t" id="HcW-rU-jtj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uMz-If-rzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5690" y="-336"/>
         </scene>
     </scenes>
     <resources>

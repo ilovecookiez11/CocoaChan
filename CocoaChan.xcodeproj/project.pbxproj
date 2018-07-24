@@ -20,8 +20,8 @@
 		B67B9A462029188E005FE7B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67B9A452029188E005FE7B5 /* Assets.xcassets */; };
 		B67B9A492029188E005FE7B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67B9A472029188E005FE7B5 /* LaunchScreen.storyboard */; };
 		B67B9A53202967F4005FE7B5 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67B9A52202967F4005FE7B5 /* Board.swift */; };
+		B6B69D2C210102AF00F053DE /* CarouselPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B69D2B210102AF00F053DE /* CarouselPageViewController.swift */; };
 		B6BBF0D92054EA0800AEC545 /* UIImageFromURLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBF0D82054EA0800AEC545 /* UIImageFromURLextension.swift */; };
-		B6C51CD820F9535B00DF2A5B /* PostImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C51CD720F9535B00DF2A5B /* PostImageViewController.swift */; };
 		B6E1F344203157890073E50D /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1F343203157890073E50D /* BoardCell.swift */; };
 		B6FA97EE203263F40089D1A3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA97ED203263F40089D1A3 /* PostCell.swift */; };
 /* End PBXBuildFile section */
@@ -44,8 +44,8 @@
 		B67B9A482029188E005FE7B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B67B9A4A2029188E005FE7B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67B9A52202967F4005FE7B5 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		B6B69D2B210102AF00F053DE /* CarouselPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPageViewController.swift; sourceTree = "<group>"; };
 		B6BBF0D82054EA0800AEC545 /* UIImageFromURLextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageFromURLextension.swift; sourceTree = "<group>"; };
-		B6C51CD720F9535B00DF2A5B /* PostImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageViewController.swift; sourceTree = "<group>"; };
 		B6E1F343203157890073E50D /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		B6FA97ED203263F40089D1A3 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,7 +106,7 @@
 				B67B9A3E2029188E005FE7B5 /* FirstViewController.swift */,
 				B639BB42203CDB51007689A8 /* BoardPageTableViewController.swift */,
 				B64C49052060BE2A00E6BE82 /* ThreadViewController.swift */,
-				B6C51CD720F9535B00DF2A5B /* PostImageViewController.swift */,
+				B6B69D2B210102AF00F053DE /* CarouselPageViewController.swift */,
 				B62D32BE20F2D31B00AAD59F /* StringExtensions.swift */,
 				B661B82B2031646800FC8033 /* HTMLDecodeExtension.swift */,
 				B6BBF0D82054EA0800AEC545 /* UIImageFromURLextension.swift */,
@@ -248,10 +248,10 @@
 				B639BB43203CDB51007689A8 /* BoardPageTableViewController.swift in Sources */,
 				B67B9A53202967F4005FE7B5 /* Board.swift in Sources */,
 				B67B9A3F2029188E005FE7B5 /* FirstViewController.swift in Sources */,
-				B6C51CD820F9535B00DF2A5B /* PostImageViewController.swift in Sources */,
 				B6E1F344203157890073E50D /* BoardCell.swift in Sources */,
 				B64C49062060BE2A00E6BE82 /* ThreadViewController.swift in Sources */,
 				B6FA97EE203263F40089D1A3 /* PostCell.swift in Sources */,
+				B6B69D2C210102AF00F053DE /* CarouselPageViewController.swift in Sources */,
 				B62BDCFF204D1159003D18B7 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

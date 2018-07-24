@@ -28,7 +28,7 @@ class BoardPageTableViewController: UITableViewController {
         
         tableView.addSubview(refresher)
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refresher.addTarget(self, action: #selector(reloadingData), for: .valueChanged)
+        refresher.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
         
     }
@@ -214,7 +214,7 @@ class BoardPageTableViewController: UITableViewController {
     performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
     }
     
-    @objc func reloadingData(){
+    @objc func reloadData(){
         DispatchQueue.main.async {
             self.fetchJSON()
         }

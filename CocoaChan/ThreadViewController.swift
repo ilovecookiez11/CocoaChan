@@ -16,9 +16,11 @@ class ThreadViewController: UITableViewController {
     var posts = [ThreadPost]()
     var postForRow = [Int: Int]()
     var repliesForPost = [Int: [Int]]()
+    var imageURLArray = [String]()
     var postImage = ""
     var postFileExt = ""
-    var imageURLArray = [String]()
+    let picsServer = "https://i.4cdn.org"
+    let refresher = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,9 @@ class ThreadViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.addSubview(refresher)
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action: #selector(reloadData), for: .valueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,8 +65,7 @@ class ThreadViewController: UITableViewController {
         cell.postNumber = post.postNumber
         
         if((post.imageURL) != nil){
-            let thumb = "https://i.4cdn.org" + currentBoard + String(describing:post.imageURL!) + "s.jpg"
-            //cell.myDumbConstraint?.isActive = true
+            let thumb = picsServer + currentBoard + String(describing:post.imageURL!) + "s.jpg"
             cell.myImageView?.downloadedFrom(link: thumb)
             cell.myImageView?.isHidden = false
             cell.myCustomViewLabel?.isHidden = false
@@ -86,7 +90,6 @@ class ThreadViewController: UITableViewController {
             
         else{
             //print("this post has no image: " + String(describing: post.postNumber))
-            //cell.myDumbConstraint?.isActive = false
             cell.PostText?.textContainer.exclusionPaths = [UIBezierPath(rect: CGRect(x: 0, y: 0, width: 0, height: 0))]
             cell.myImageView?.isHidden = true
             cell.myCustomViewLabel?.isHidden = true
@@ -197,7 +200,7 @@ class ThreadViewController: UITableViewController {
             
             if(imgURL != nil){
                 obj = ThreadPost(postNumber: threadNumber!, title: title, name: name, comment: comment, date: time!, imageURL: imgURL!, filename: myfilename, fileExt: myfileExt, fileSize: myfileSize)
-                imageURLArray.append(String(describing: imgURL!) + myfileExt)
+                imageURLArray.append(picsServer + currentBoard + String(describing: imgURL!) + myfileExt)
                 
             }
             else{
@@ -231,6 +234,31 @@ class ThreadViewController: UITableViewController {
             ThreadToPostImageVC.imageIndex = imageURLArray.index(of: postImage)!
             
         }
+        
+        if (segue.identifier == "ThreadToNavSegue"){
+            
+            let ThreadToNavController = segue.destination as? UINavigationController
+            //let ThreadToPostImageVC:PostImageViewController = ThreadToNavController?.topViewController as! PostImageViewController
+            let ThreadToCarouselVC:CarouselPageViewController = ThreadToNavController?.topViewController as! CarouselPageViewController
+            ThreadToCarouselVC.currentBoard = currentBoard
+            ThreadToCarouselVC.currentImage = postImage
+            ThreadToCarouselVC.fileType = postFileExt
+            ThreadToCarouselVC.picsURLArray = imageURLArray
+            ThreadToCarouselVC.imageIndex = imageURLArray.index(of: postImage)!
+            
+        }
+    }
+    
+    @objc func reloadData(){
+        DispatchQueue.main.async {
+            self.fetchJSON()
+        }
+        refresher.endRefreshing()
+        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        postForRow.removeAll()
+        repliesForPost.removeAll()
+        imageURLArray.removeAll()
+        self.tableView.reloadData()
     }
     
     @objc func showError() {
@@ -243,7 +271,17 @@ class ThreadViewController: UITableViewController {
         //I can't believe this one works
         let cell = _sender?.view?.superview?.superview?.superview as! ThreadPostCell
         postImage = String(describing: cell.postImage!) + cell.postExtension
-        performSegue(withIdentifier: "ThreadToPostImageSegue", sender: self)
+        //performSegue(withIdentifier: "ThreadToPostImageSegue", sender: self)
+        if let pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "NewNavController") as? UINavigationController{
+            let ThreadToCarouselVC: CarouselPageViewController = pageViewController.topViewController as! CarouselPageViewController
+            ThreadToCarouselVC.currentBoard = currentBoard
+            ThreadToCarouselVC.currentImage = postImage
+            ThreadToCarouselVC.fileType = postFileExt
+            ThreadToCarouselVC.picsURLArray = imageURLArray
+            ThreadToCarouselVC.imageIndex = imageURLArray.index(of: picsServer + currentBoard + postImage)!
+            self.present(pageViewController, animated: true, completion: nil)
+        }
+        
     }
     
     func PrettyPost(postText: String) -> NSAttributedString{
