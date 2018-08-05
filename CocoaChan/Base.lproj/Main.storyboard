@@ -265,19 +265,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vk8-sq-wT3">
-                                            <rect key="frame" x="0.0" y="2" width="0.0" height="162.5"/>
+                                            <rect key="frame" x="4" y="2" width="367" height="162.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mAt-Wj-QBl">
-                                                    <rect key="frame" x="0.0" y="6" width="0.0" height="152.5"/>
+                                                    <rect key="frame" x="4" y="6" width="359" height="152.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2V2-i9-W2e">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="14.5"/>
                                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Enw-8G-LAS">
-                                                            <rect key="frame" x="0.0" y="18.5" width="0.0" height="134"/>
+                                                            <rect key="frame" x="0.0" y="18.5" width="359" height="134"/>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -289,7 +289,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ir9-s8-QJk">
-                                                    <rect key="frame" x="0.0" y="25" width="90" height="102"/>
+                                                    <rect key="frame" x="4" y="25" width="90" height="102"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bNJ-tW-jSc">
                                                             <rect key="frame" x="0.0" y="0.0" width="90" height="102"/>
@@ -455,7 +455,7 @@
         <!--Carousel Image View Controller-->
         <scene sceneID="3ya-hA-eHV">
             <objects>
-                <viewController storyboardIdentifier="AnImageViewController" id="u51-kL-QKk" customClass="CarouselImageViewController" customModule="CocoaChan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AnImageViewController" automaticallyAdjustsScrollViewInsets="NO" id="u51-kL-QKk" customClass="CarouselImageViewController" customModule="CocoaChan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jp2-IA-bWD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -463,27 +463,26 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDX-4y-l5t">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Np-eW-SF5">
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="647" translatesAutoresizingMaskIntoConstraints="NO" id="3Np-eW-SF5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="centerY" secondItem="wDX-4y-l5t" secondAttribute="centerY" id="Eax-WM-hYV"/>
-                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="centerX" secondItem="wDX-4y-l5t" secondAttribute="centerX" id="b6Y-ZI-9cd"/>
-                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="top" secondItem="wDX-4y-l5t" secondAttribute="top" id="j0T-oB-k31"/>
-                                    <constraint firstAttribute="trailing" secondItem="3Np-eW-SF5" secondAttribute="trailing" id="jQY-G4-sMk"/>
-                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="leading" secondItem="wDX-4y-l5t" secondAttribute="leading" id="o0R-O3-Nwo"/>
-                                    <constraint firstAttribute="bottom" secondItem="3Np-eW-SF5" secondAttribute="bottom" id="xCS-p5-TdO"/>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="bottom" secondItem="wDX-4y-l5t" secondAttribute="bottom" id="IU5-PB-jik"/>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="top" secondItem="wDX-4y-l5t" secondAttribute="top" id="Nv0-IW-uyU"/>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="centerX" secondItem="wDX-4y-l5t" secondAttribute="centerX" id="OHb-k9-qFm"/>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="centerY" secondItem="wDX-4y-l5t" secondAttribute="centerY" id="iaN-EP-fCG"/>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="leading" secondItem="wDX-4y-l5t" secondAttribute="leading" id="itc-5x-82d"/>
+                                    <constraint firstItem="3Np-eW-SF5" firstAttribute="trailing" secondItem="wDX-4y-l5t" secondAttribute="trailing" id="v9M-bk-jDv"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="wDX-4y-l5t" firstAttribute="top" secondItem="3Ur-q1-qT7" secondAttribute="top" id="BqL-nO-RB9"/>
-                            <constraint firstItem="wDX-4y-l5t" firstAttribute="leading" secondItem="3Ur-q1-qT7" secondAttribute="leading" id="Mws-Tk-usS"/>
-                            <constraint firstItem="wDX-4y-l5t" firstAttribute="trailing" secondItem="3Ur-q1-qT7" secondAttribute="trailing" id="Sa4-kv-kjf"/>
-                            <constraint firstItem="wDX-4y-l5t" firstAttribute="centerX" secondItem="3Ur-q1-qT7" secondAttribute="centerX" id="Stg-Ib-Rr2"/>
-                            <constraint firstItem="wDX-4y-l5t" firstAttribute="bottom" secondItem="3Ur-q1-qT7" secondAttribute="bottom" id="UyX-V8-lL8"/>
-                            <constraint firstItem="wDX-4y-l5t" firstAttribute="centerY" secondItem="3Ur-q1-qT7" secondAttribute="centerY" id="iWs-jb-1hf"/>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="top" secondItem="3Ur-q1-qT7" secondAttribute="top" id="JOO-lM-HqN"/>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="bottom" secondItem="3Ur-q1-qT7" secondAttribute="bottom" id="QgM-5b-ozg"/>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="trailing" secondItem="3Ur-q1-qT7" secondAttribute="trailing" id="YUk-MR-DL8"/>
+                            <constraint firstItem="wDX-4y-l5t" firstAttribute="leading" secondItem="3Ur-q1-qT7" secondAttribute="leading" id="lB9-74-NPh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Ur-q1-qT7"/>
                     </view>
@@ -492,6 +491,10 @@
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" image="icons8-save_filled" id="qJE-la-xJM"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageViewBottomConstraint" destination="IU5-PB-jik" id="Dam-Hx-7dA"/>
+                        <outlet property="imageViewLeadingConstraint" destination="itc-5x-82d" id="m34-DC-kKC"/>
+                        <outlet property="imageViewTopConstraint" destination="Nv0-IW-uyU" id="eUm-aK-DvV"/>
+                        <outlet property="imageViewTrailingConstraint" destination="v9M-bk-jDv" id="zyP-tv-dkS"/>
                         <outlet property="theImageView" destination="3Np-eW-SF5" id="SAS-3x-aZV"/>
                         <outlet property="theScrollView" destination="wDX-4y-l5t" id="HcW-rU-jtj"/>
                     </connections>

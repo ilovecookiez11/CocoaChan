@@ -14,6 +14,8 @@ class CarouselPageViewController: UIPageViewController, UIPageViewControllerData
     @IBOutlet weak var closeButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    
+    
     var currentBoard = "none"
     var currentImage = "none"
     var fileType = "none"
@@ -113,7 +115,10 @@ class CarouselPageViewController: UIPageViewController, UIPageViewControllerData
     }
     
     @objc func EnableSave() {
-        self.saveButton.isEnabled = true
+        //let vc = self.viewControllers?.first as? CarouselImageViewController
+        //if (vc?.shouldEnableSave)!{
+                self.saveButton.isEnabled = true
+        //}
     }
     
     @objc func DisableSave() {
@@ -162,21 +167,33 @@ class CarouselPageViewController: UIPageViewController, UIPageViewControllerData
 
 }
 
+
 class CarouselImageViewController : UIViewController{
     
     
     @IBOutlet weak var theScrollView: UIScrollView!
     @IBOutlet weak var theImageView: UIImageView!
+    @IBOutlet weak var imageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewTrailingConstraint: NSLayoutConstraint!
+    
     var theFileURL : URL
     var index = 0
     var shouldEnableSave = false;
     let enableSaveNotification = NSNotification.Name(rawValue: "shouldEnableSave")
     let disableSaveNotification = NSNotification.Name(rawValue: "shouldDisableSave")
-    
+    var lastZoomScale: CGFloat = -1
     
     override func viewDidLoad() {
         
-        print("Current Image: " + theFileURL.absoluteString + " for index: " + String(describing:index))
+        theScrollView.delegate = self
+        theImageView.isUserInteractionEnabled = true
+        theImageView.isMultipleTouchEnabled = true
+        
+        
+        
+        //print("Current Image: " + theFileURL.absoluteString + " for index: " + String(describing:index))
         //NotificationCenter.default.post(name: disableSaveNotification, object: nil)
         
         let fileType = theFileURL.pathExtension
@@ -196,6 +213,9 @@ class CarouselImageViewController : UIViewController{
                 //self.saveButton.isEnabled = true
                 NotificationCenter.default.post(name: self.enableSaveNotification, object: nil)
                 self.shouldEnableSave = true
+                self.theScrollView.minimumZoomScale = 1.0
+                self.theScrollView.maximumZoomScale = 5.0
+                //self.updateZoom()
                 print("Save button should be enabled by now")
             })
         case "gif":
@@ -220,9 +240,96 @@ class CarouselImageViewController : UIViewController{
     }
     
     
+    
+    /*func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return theImageView
+    }*/
+    
+    /*override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateMinZoomScaleForSize(view.bounds.size)
+    }*/
+    
+    fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {
+        let widthScale = size.width / theImageView.bounds.width
+        let heightScale = size.height / theImageView.bounds.height
+        let minScale = min(widthScale, heightScale)
+        
+        theScrollView.minimumZoomScale = minScale
+        theScrollView.zoomScale = minScale
+    }
+    
+    
     required init?(coder decoder: NSCoder) {
         self.theFileURL = URL(string: "none")!
         super.init(coder: decoder)
     }
     
 }
+
+extension CarouselImageViewController: UIScrollViewDelegate {
+    @available(iOS 8.0, *)
+    override func viewWillTransition(to size: CGSize,
+                                     with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: { [weak self] _ in
+            self?.updateZoom()
+            }, completion: nil)
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return theImageView
+    }
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        updateConstraints()
+    }
+    
+    func updateConstraints() {
+        if let image = theImageView.image {
+            let imageWidth = image.size.width
+            let imageHeight = image.size.height
+            
+            let viewWidth = theScrollView.bounds.size.width
+            let viewHeight = theScrollView.bounds.size.height
+            
+            // center image if it is smaller than the scroll view
+            var hPadding = (viewWidth - theScrollView.zoomScale * imageWidth) / 2
+            if hPadding < 0 { hPadding = 0 }
+            
+            var vPadding = (viewHeight - theScrollView.zoomScale * imageHeight) / 2
+            if vPadding < 0 { vPadding = 0 }
+            
+            imageViewLeadingConstraint.constant = hPadding
+            imageViewTrailingConstraint.constant = hPadding
+            
+            imageViewTopConstraint.constant = vPadding
+            imageViewBottomConstraint.constant = vPadding
+            
+            view.layoutIfNeeded()
+        }
+    }
+    
+    
+    fileprivate func updateZoom() {
+        if let image = theImageView.image {
+            var minZoom = min(theScrollView.bounds.size.width / image.size.width,
+                              theScrollView.bounds.size.height / image.size.height)
+            
+            if minZoom > 1 { minZoom = 1 }
+            
+            theScrollView.minimumZoomScale = 0.3 * minZoom
+            
+            // Force scrollViewDidZoom fire if zoom did not change
+            if minZoom == lastZoomScale { minZoom += 0.000001 }
+            
+            theScrollView.zoomScale = minZoom
+            lastZoomScale = minZoom
+        }
+    }
+    
+}
+
+
+

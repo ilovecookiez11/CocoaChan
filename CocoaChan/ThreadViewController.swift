@@ -223,17 +223,6 @@ class ThreadViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "ThreadToPostImageSegue"){
-            
-            let ThreadToNavController = segue.destination as? UINavigationController
-            let ThreadToPostImageVC:PostImageViewController = ThreadToNavController?.topViewController as! PostImageViewController
-            ThreadToPostImageVC.currentBoard = currentBoard
-            ThreadToPostImageVC.currentImage = postImage
-            ThreadToPostImageVC.fileType = postFileExt
-            ThreadToPostImageVC.picsURLArray = imageURLArray
-            ThreadToPostImageVC.imageIndex = imageURLArray.index(of: postImage)!
-            
-        }
         
         if (segue.identifier == "ThreadToNavSegue"){
             
