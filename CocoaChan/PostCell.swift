@@ -33,7 +33,7 @@ class ThreadPostCell : UITableViewCell {
     @IBOutlet weak var postInfo: UILabel!
     @IBOutlet weak var myDumbConstraint: NSLayoutConstraint!
     @IBOutlet weak var myStackView: UIStackView!
-    
+    @IBOutlet weak var repliesButton: UIButton!
     
     var postNumber: Int!
     var postImage: Int!

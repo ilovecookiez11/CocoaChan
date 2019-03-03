@@ -120,7 +120,18 @@ class ThreadViewController: UITableViewController {
         myPostInfo.append(myPostName)
         myPostInfo.append(postInfo)
         
+        let replies = repliesForPost[post.postNumber]
+        let noOfReplies = replies?.count
+        
+        if(noOfReplies != nil){
+            cell.repliesButton?.setTitle("View " + String(describing: noOfReplies!) + " replies", for: UIControlState.normal)
+            cell.repliesButton?.isHidden = false
+        }
+        else {
+            cell.repliesButton?.isHidden = true
+        }
         cell.postInfo?.attributedText = myPostInfo
+        
         
         return cell
     }
@@ -193,18 +204,18 @@ class ThreadViewController: UITableViewController {
             let comment = result["com"].stringValue
             let time = result["time"].int //date is given as UNIX timestamp
             imgURL = result["tim"].int //image URL is determined as UNIX milliseconds
-            let threadNumber = result["no"].int
+            let myPostNumber = result["no"].int!
             let myfilename = result["filename"].stringValue
             let myfileExt = result["ext"].stringValue
             let myfileSize = result["fsize"].int
             
             if(imgURL != nil){
-                obj = ThreadPost(postNumber: threadNumber!, title: title, name: name, comment: comment, date: time!, imageURL: imgURL!, filename: myfilename, fileExt: myfileExt, fileSize: myfileSize)
+                obj = ThreadPost(postNumber: myPostNumber, title: title, name: name, comment: comment, date: time!, imageURL: imgURL!, filename: myfilename, fileExt: myfileExt, fileSize: myfileSize)
                 imageURLArray.append(picsServer + currentBoard + String(describing: imgURL!) + myfileExt)
                 
             }
             else{
-                obj = ThreadPost(postNumber: threadNumber!, title: title, name: name, comment: comment, date: time!, imageURL: nil, filename: myfilename, fileExt: myfileExt, fileSize: nil)
+                obj = ThreadPost(postNumber: myPostNumber, title: title, name: name, comment: comment, date: time!, imageURL: nil, filename: myfilename, fileExt: myfileExt, fileSize: nil)
             }
             
             //print(imageURL)
@@ -213,8 +224,18 @@ class ThreadViewController: UITableViewController {
             
             //Listing posts quoted on this post with RegEx
             let pattern = "(?<=<a href=\\\"#p)[0-9]+"
-            let shit = comment.matchingStrings(regex: pattern)
-            print(shit)
+            let postNumbersString = comment.matchingStrings(regex: pattern)
+            //let postsNumArray = postNumbersString.map {Int($0)!}
+            
+            for stringArray in postNumbersString {
+                let repliedPost = Int(stringArray.first!)!
+                print(myPostNumber, " replied to ", repliedPost)
+                repliesForPost[repliedPost, default:[]].append(myPostNumber)
+            }
+            
+            //print(postNumbersString)
+            //repliesForPost.updateValue(postNumbersString, forKey: threadNumber!)
+            
                 
             
             
