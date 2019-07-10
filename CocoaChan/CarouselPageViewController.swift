@@ -80,7 +80,7 @@ class CarouselPageViewController: UIPageViewController, UIPageViewControllerData
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
             let vc = self.viewControllers?.first as? CarouselImageViewController
-            print(pageViewController.childViewControllers.description)
+            print(pageViewController.children.description)
             print("transition completed")
             currentPage = picsURLArray.index(of: (vc?.theFileURL.absoluteString)!)!
             print("new index = " + String(describing: picsURLArray.index(of: (vc?.theFileURL.absoluteString)!)))

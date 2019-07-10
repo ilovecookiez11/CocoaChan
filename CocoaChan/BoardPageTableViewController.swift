@@ -22,7 +22,7 @@ class BoardPageTableViewController: UITableViewController {
         print(currentBoard)
         fetchJSON()
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.navigationItem.title = currentBoard + " - Page " + String(describing: boardPage)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(NewThread))
         
@@ -57,7 +57,7 @@ class BoardPageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostCell
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         var replyPart, imagePart : String
         var threadClosed = ""
         var threadPinned = ""
@@ -124,7 +124,7 @@ class BoardPageTableViewController: UITableViewController {
         }
         else{
             let myTitle = post.title.htmlDecoded
-            let attributedTitle = NSMutableAttributedString(string: myTitle, attributes:[NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12)])
+            let attributedTitle = NSMutableAttributedString(string: myTitle, attributes:[NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12)])
             let moreInfo = NSMutableAttributedString(string: replyPart + imagePart + ". ")
             let combination = NSMutableAttributedString()
             combination.append(moreInfo)
@@ -142,8 +142,8 @@ class BoardPageTableViewController: UITableViewController {
         let myRight = NSMutableParagraphStyle()
         myRight.alignment = .right
         
-        let myPostName = NSMutableAttributedString(string: post.name, attributes: [NSAttributedStringKey.foregroundColor: myGreen, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12)])
-        let postInfo = NSMutableAttributedString(string: " " + strDate + " No." + String(describing:post.postNumber) + threadClosed + threadPinned, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12), .paragraphStyle: myRight])
+        let myPostName = NSMutableAttributedString(string: post.name, attributes: [NSAttributedString.Key.foregroundColor: myGreen, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12)])
+        let postInfo = NSMutableAttributedString(string: " " + strDate + " No." + String(describing:post.postNumber) + threadClosed + threadPinned, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12), .paragraphStyle: myRight])
         let myPostInfo = NSMutableAttributedString()
         myPostInfo.append(myPostName)
         myPostInfo.append(postInfo)

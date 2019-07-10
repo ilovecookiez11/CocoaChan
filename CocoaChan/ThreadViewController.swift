@@ -25,7 +25,7 @@ class ThreadViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(currentBoard, threadNumber)
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         fetchJSON()
 
         // Uncomment the following line to preserve selection between presentations
@@ -114,8 +114,8 @@ class ThreadViewController: UITableViewController {
         let strDate = dateFormatter.string(from: date)
         
         let myGreen = UIColor(red:0.07, green:0.47, blue:0.26, alpha:1.0)
-        let myPostName = NSMutableAttributedString(string: post.name, attributes: [NSAttributedStringKey.foregroundColor: myGreen, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12)])
-        let postInfo = NSMutableAttributedString(string: " " + strDate + " No." + String(describing:post.postNumber), attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)])
+        let myPostName = NSMutableAttributedString(string: post.name, attributes: [NSAttributedString.Key.foregroundColor: myGreen, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12)])
+        let postInfo = NSMutableAttributedString(string: " " + strDate + " No." + String(describing:post.postNumber), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)])
         let myPostInfo = NSMutableAttributedString()
         myPostInfo.append(myPostName)
         myPostInfo.append(postInfo)
@@ -124,7 +124,7 @@ class ThreadViewController: UITableViewController {
         let noOfReplies = replies?.count
         
         if(noOfReplies != nil){
-            cell.repliesButton?.setTitle("View " + String(describing: noOfReplies!) + " replies", for: UIControlState.normal)
+            cell.repliesButton?.setTitle("View " + String(describing: noOfReplies!) + " replies", for: UIControl.State.normal)
             cell.repliesButton?.isHidden = false
         }
         else {

@@ -24,11 +24,11 @@ class FirstViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewBoard))
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red:0.49, green:0.11, blue:0.09, alpha:1.0)];
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red:0.49, green:0.11, blue:0.09, alpha:1.0)];
         navigationController?.navigationBar.tintColor = UIColor(red:0.49, green:0.11, blue:0.09, alpha:1.0)
         navigationController?.navigationBar.barTintColor = UIColor(red:1.00, green:1.00, blue:0.94, alpha:1.0)
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 140
         
         
@@ -56,7 +56,7 @@ class FirstViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     //changes row position on TableView
@@ -70,7 +70,7 @@ class FirstViewController: UITableViewController {
     
     
     //removes rows from TableView
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
         self.boards.remove(at: indexPath.row)
         saveBoardList()
